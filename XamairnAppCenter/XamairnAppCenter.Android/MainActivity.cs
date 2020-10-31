@@ -1,5 +1,7 @@
 ﻿using System;
-
+using Microsoft.AppCenter;
+using Microsoft.AppCenter.Analytics;
+using Microsoft.AppCenter.Crashes;
 using Android.App;
 using Android.Content.PM;
 using Android.Runtime;
@@ -14,6 +16,11 @@ namespace XamairnAppCenter.Droid
     {
         protected override void OnCreate(Bundle savedInstanceState)
         {
+            AppCenter.Start("5ef8920c-cfb8-4318-8ffd-9049f7e1bcdd",
+                   typeof(Analytics), typeof(Crashes));
+            AppCenter.Start("5ef8920c-cfb8-4318-8ffd-9049f7e1bcdd",
+                               typeof(Analytics), typeof(Crashes));
+
             TabLayoutResource = Resource.Layout.Tabbar;
             ToolbarResource = Resource.Layout.Toolbar;
 
