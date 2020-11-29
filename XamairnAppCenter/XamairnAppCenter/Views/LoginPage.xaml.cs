@@ -16,6 +16,7 @@ namespace XamairnAppCenter.Views
         {
             InitializeComponent();
             this.BindingContext = new LoginViewModel();
+            WV.Source = "http://www.geenraltesting.somee.com/api/Report/GetReport?ReportName=UserDetails";
         }
     }
 }
