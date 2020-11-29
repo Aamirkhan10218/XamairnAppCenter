@@ -1,5 +1,4 @@
-﻿
-using System.IO;
+﻿using System.IO;
 using System.Threading.Tasks;
 using XamairnAppCenter.Droid.PlatformSpecifics;
 using XamairnAppCenter.Interfaces;

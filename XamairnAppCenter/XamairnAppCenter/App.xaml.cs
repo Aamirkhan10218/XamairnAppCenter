@@ -1,8 +1,5 @@
-﻿using System;
+﻿using XamairnAppCenter.Services;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
-using XamairnAppCenter.Services;
-using XamairnAppCenter.Views;
 
 namespace XamairnAppCenter
 {
@@ -14,8 +11,8 @@ namespace XamairnAppCenter
             InitializeComponent();
 
             DependencyService.Register<MockDataStore>();
-            //  MainPage = new AppShell();
-            MainPage = new PDFPage();
+              MainPage = new AppShell();
+           // MainPage = new PDFPage();
         }
 
         protected override void OnStart()
