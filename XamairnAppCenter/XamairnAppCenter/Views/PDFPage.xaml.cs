@@ -14,42 +14,50 @@ namespace XamairnAppCenter.Views
         public PDFPage()
         {
             InitializeComponent();
-            var localPath = string.Empty;
-            string url = "http://www.geenraltesting.somee.com/api/Report/GetReport?ReportName=UserDetails";
-
-            if (Device.RuntimePlatform == Device.Android)
+            try
             {
-                var dependency = DependencyService.Get<ILocalFileProvider>();
+                var localPath = string.Empty;
+                string url = "http://www.geenraltesting.somee.com/api/Report/GetReport?ReportName=UserDetails";
 
-                if (dependency == null)
+                if (Device.RuntimePlatform == Device.Android)
                 {
-                    DisplayAlert("Error loading PDF", "Computer says no", "OK");
+                    var dependency = DependencyService.Get<ILocalFileProvider>();
 
-                    return;
+                    if (dependency == null)
+                    {
+                        DisplayAlert("Error loading PDF", "Computer says no", "OK");
+
+                        return;
+                    }
+
+                    var fileName = "DBR OF" + DateTime.Now.ToShortDateString(); //Guid.NewGuid().ToString();
+
+                    // Download PDF locally for viewing
+                    using (var httpClient = new HttpClient())
+                    {
+                        var pdfStream = Task.Run(() => httpClient.GetStreamAsync(url)).Result;
+
+                        localPath =
+                            Task.Run(() => dependency.SaveFileToDisk(pdfStream, $"{fileName}.pdf")).Result;
+                    }
+
+                    if (string.IsNullOrWhiteSpace(localPath))
+                    {
+                        DisplayAlert("Error loading PDF", "Computer says no", "OK");
+                        return;
+                    }
                 }
 
-                var fileName = Guid.NewGuid().ToString();
-
-                // Download PDF locally for viewing
-                using (var httpClient = new HttpClient())
-                {
-                    var pdfStream = Task.Run(() => httpClient.GetStreamAsync(url)).Result;
-
-                    localPath =
-                        Task.Run(() => dependency.SaveFileToDisk(pdfStream, $"{fileName}.pdf")).Result;
-                }
-
-                if (string.IsNullOrWhiteSpace(localPath))
-                {
-                    DisplayAlert("Error loading PDF", "Computer says no", "OK");
-                    return;
-                }
+                if (Device.RuntimePlatform == Device.Android)
+                    PdfView.Source = $"file:///android_asset/pdfjs/web/viewer.html?file={"file:///" + WebUtility.UrlEncode(localPath)}";
+                else
+                    PdfView.Source = url;
             }
+            catch (Exception ex)
+            {
 
-            if (Device.RuntimePlatform == Device.Android)
-                PdfView.Source = $"file:///android_asset/pdfjs/web/viewer.html?file={"file:///" + WebUtility.UrlEncode(localPath)}";
-            else
-                PdfView.Source = url;
+                DisplayAlert("Exception", ex.Message, "OK");
+            }
         }
 
 
