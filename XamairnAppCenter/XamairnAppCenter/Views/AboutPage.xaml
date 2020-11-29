@@ -7,8 +7,10 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
-        <WebView Grid.Row="0" x:Name="api" VerticalOptions="Fill" HorizontalOptions="Fill"></WebView>
+        <Button Grid.Row="0" Clicked="Button_Clicked"></Button>
+        <WebView Grid.Row="1" x:Name="api" VerticalOptions="Fill" HorizontalOptions="Fill"></WebView>
     </Grid>
 
 </ContentPage>
