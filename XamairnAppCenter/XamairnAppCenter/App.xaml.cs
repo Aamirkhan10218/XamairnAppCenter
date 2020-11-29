@@ -14,7 +14,8 @@ namespace XamairnAppCenter
             InitializeComponent();
 
             DependencyService.Register<MockDataStore>();
-            MainPage = new AppShell();
+            //  MainPage = new AppShell();
+            MainPage = new PDFPage();
         }
 
         protected override void OnStart()

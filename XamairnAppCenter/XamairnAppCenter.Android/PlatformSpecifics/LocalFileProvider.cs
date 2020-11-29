@@ -10,7 +10,8 @@ namespace XamairnAppCenter.Droid.PlatformSpecifics
 {
     public class LocalFileProvider : ILocalFileProvider
     {
-        private readonly string _rootDir = Path.Combine(Android.OS.Environment.ExternalStorageDirectory.Path, "pdfjs");
+        [System.Obsolete]
+        private readonly string _rootDir = Path.Combine(Android.OS.Environment.ExternalStorageDirectory.Path, "DBR");
 
         public async Task<string> SaveFileToDisk(Stream pdfStream, string fileName)
         {

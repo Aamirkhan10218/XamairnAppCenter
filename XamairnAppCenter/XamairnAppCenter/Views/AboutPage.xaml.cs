@@ -17,7 +17,8 @@ namespace XamairnAppCenter.Views
 
         private  void Button_Clicked(object sender, EventArgs e)
         {
-            string url = "http://www.geenraltesting.somee.com/api/Report/GetReport?ReportName=UserDetails";
+            //string url = "http://www.geenraltesting.somee.com/api/Report/GetReport?ReportName=UserDetails";
+            string url = "http://media.wuerth.com/stmedia/shop/catalogpages/LANG_it/1637048.pdf";
             //try
             //{
             //    await Browser.OpenAsync(url, BrowserLaunchMode.SystemPreferred);
@@ -43,7 +44,7 @@ namespace XamairnAppCenter.Views
 
             var localPath = string.Empty;
 
-            var fileName = "DBROf"+DateTime.Now.ToShortDateString();
+            var fileName = "dbr";
 
             // Download PDF locally for viewing
             using (var httpClient = new HttpClient())
