@@ -6,11 +6,9 @@
              Title="{Binding Title}">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="500"></RowDefinition>
-            <RowDefinition Height="500"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
-        <WebView Grid.Row="1" x:Name="api" VerticalOptions="Fill" HorizontalOptions="Fill"></WebView>
-        <WebView Grid.Row="0" x:Name="google" VerticalOptions="Fill" HorizontalOptions="Fill"></WebView>
+        <WebView Grid.Row="0" x:Name="api" VerticalOptions="Fill" HorizontalOptions="Fill"></WebView>
     </Grid>
 
 </ContentPage>
