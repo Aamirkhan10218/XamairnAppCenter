@@ -6,10 +6,11 @@
              Title="{Binding Title}">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
-        <Button Grid.Row="0" Clicked="Button_Clicked"></Button>
+        <Button Grid.Row="0" Text="Download DBR" Clicked="Button_Clicked"></Button>
+   
         <WebView Grid.Row="1" x:Name="api" VerticalOptions="Fill" HorizontalOptions="Fill"></WebView>
     </Grid>
 

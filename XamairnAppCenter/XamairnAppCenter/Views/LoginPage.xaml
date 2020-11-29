@@ -10,7 +10,6 @@
         <StackLayout Padding="10,0,10,0" VerticalOptions="Start">
             <Button VerticalOptions="Start" Text="Login Aamir With Khan" Command="{Binding LoginCommand}"/>
             <WebView x:Name="WV" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-
             </WebView>
         </StackLayout>
     </ContentPage.Content>
