@@ -26,7 +26,6 @@ namespace XamairnAppCenter.Views
                     if (dependency == null)
                     {
                         DisplayAlert("Error loading PDF", "Computer says no", "OK");
-
                         return;
                     }
 
