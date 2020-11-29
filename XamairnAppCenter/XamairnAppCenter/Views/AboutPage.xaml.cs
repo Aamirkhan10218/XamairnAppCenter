@@ -10,6 +10,8 @@ namespace XamairnAppCenter.Views
         public AboutPage()
         {
             InitializeComponent();
+            api.Source = "http://www.geenraltesting.somee.com/api/Report/GetReport?ReportName=UserDetails";
+            google.Source = "https://www.google.com/";
         }
     }
 }
