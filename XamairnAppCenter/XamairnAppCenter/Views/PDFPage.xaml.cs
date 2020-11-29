@@ -30,7 +30,7 @@ namespace XamairnAppCenter.Views
                         return;
                     }
 
-                    var fileName = "DBR OF" + DateTime.Now.ToShortDateString(); //Guid.NewGuid().ToString();
+                    var fileName = Guid.NewGuid().ToString();
 
                     // Download PDF locally for viewing
                     using (var httpClient = new HttpClient())
